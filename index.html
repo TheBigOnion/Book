@@ -1,91 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Family Book - A Journey Through Time!</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            background-color: #f8f8f8;
-        }
+<title>Do You Remember? ...I Do</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+  height: 100%;
+  color: #fff;
+  line-height: 1.8;
+}
 
-        h1, h2 {
-            color: #333;
-        }
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+/* First image (Logo. Full height) */
+.bgimg-1 {
+  background-image: url('YoakumCountyTexas1907Postal.jpg');
+  min-height: 100%;
+}
 
-        .family-photo {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-            margin-bottom: 15px;
-        }
+/* Second image (Portfolio) */
+.bgimg-2 {
+  background-image: url("YoakumCountyTexas1907Postal.jpg");
+  min-height: 400px;
+}
 
-        .section {
-            margin-bottom: 20px;
-        }
+/* Third image (Contact) */
+.bgimg-3 {
+  background-image: url("YoakumCountyTexas1907Postal.jpg");
+  min-height: 400px;
+}
 
-        .author-info {
-            font-style: italic;
-            color: #777;
-            margin-top: 20px;
-        }
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
 
-        .footer {
-            text-align: center;
-            color: #888;
-            margin-top: 30px;
-            font-size: 0.8em;
-        }
-    </style>
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1600px) {
+  .bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: scroll;
+    min-height: 400px;
+  }
+}
+</style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Welcome to Our McFarlin Family Book!</h1>
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="DoYouRememberIDo.pdf" class="w3-bar-item w3-button" target="_blank" rel="noopener noreferrer"><i class="fa fa-book"></i>READ</a>
+    <a href="#LISTEN" class="w3-bar-item w3-button w3-hide-small" target="_blank" rel="noopener noreferrer"><i class="fa fa-volume-up"></i> LISTEN</a>
 
-        <p>Hi everyone! Welcome to a special place where we can share the stories, memories, and amazing people that make our family so unique and wonderful.</p>
+  </div>
 
-        <div class="section">
-            <h2>A Glimpse of the Past</h2>
-            <img src="your-family-photo.jpg" alt="A lovely family photo" class="family-photo">
-            <p>This is just a sneak peek! We'll be adding lots more pictures, stories, and maybe even some fun family recipes. We can't wait to share it all with you.</p>
-        </div>
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="DoYouRememberIDo.pdf" class="w3-bar-item w3-button" onclick="toggleFunction()">READ</a>
+    <a href="#listen" class="w3-bar-item w3-button" onclick="toggleFunction()">LISTEN</a>
+  </div>
+</div>
 
-        <div class="section">
-            <h2>What's Inside?</h2>
-            <ul>
-                <li>Family History: A look back at our roots!</li>
-                <li>Personal Stories: Tales from each family member.</li>
-                <li>Memorable Moments: Reliving those special times.</li>
-                <li>And much more...</li>
-            </ul>
-        </div>
+<!-- First Parallax Image with Logo Text -->
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">MY <span class="w3-hide-small">WEBSITE</span> LOGO</span>
+  </div>
+</div>
 
-        <div class="section">
-            <h2>Join the Fun!</h2>
-            <p>We encourage everyone to contribute!  If you have a story, a picture, or anything you'd like to add, please share! This is a collaborative effort, and the more, the merrier!</p>
-        </div>
 
-        <div class="author-info">
-            <p>Created with love by [Your Name/Family Name]  &hearts;</p>
-        </div>
-    </div>
+ 
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
 
-    <div class="footer">
-        <p>&copy; 2024 Our Family Book. All rights reserved.  This website is a work in progress!</p>
-    </div>
+// Change style of navbar on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+    }
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
 
 </body>
 </html>
